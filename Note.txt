@@ -1,0 +1,67 @@
+Interface			Abstract class				Concrete Class
+Not implement			Partially implement			Fully Implemented
+- No State			- contains state			- contain state
+- All methods are abstract      - abstract and fully implemented	- methods are fully
+				method					implemented
+
+=======================================
+		DIFFERENT BETWEEN ONCLICK AND ONCLICKLISTENER
+
+There are a couple reasons why you might want to programmatically set an OnClickListener. 
+The first is if you ever want to change the behavior of your button 
+while your app is running. You can point your button at another method entirely, 
+or just disable the button by setting an OnClickListener that doesn't do anything.
+
+When you define a listener using the onClick attribute, 
+the view looks for a method with that name only in its host activity. 
+Programmatically setting an OnClickListener allows you to control a button's behavior 
+from somewhere other than its host activity. 
+This will become very relevant when we learn about Fragments, 
+which are basically mini activities, allowing you to build reusable collections of 
+views with their own lifecycle, which can then be assembled into activities. 
+Fragments always need to use OnClickListeners to control their buttons, 
+since they're not Activities, and won't be searched for listeners defined in onClick.
+
+=====================================
+Audio Manager
+
+Summary: Create a manager to control audio service, and you request it to get audio play or other tasks.
+
+If the phone rings, and the user answers, they do not want that music to continue to play.
+Obviously. So the system will silence your app,
+and you should notice this transient loss of audio focus (it’ll be back after the call!) 
+and pause the music while you wait.
+
+"ducking" lower down volumn, pause, ...
+"permanent loss" switch to poscast app during listening to music
+
+request to play and release when done
+
+So you need an OnAudioFocusChangeListener to keep track of your status and react to those changes!
+
+
+=======================================
+Nav 
+
+Note the following:
+
+The android:name attribute contains the class name of your NavHost implementation.
+The app:navGraph attribute associates the NavHostFragment with a navigation graph. 
+The navigation graph specifies all of the destinations in this NavHostFragment 
+to which users can navigate.
+The app:defaultNavHost="true" attribute ensures that your NavHostFragment 
+intercepts the system Back button. Note that only one NavHost can be the default. 
+If you have multiple hosts in the same layout (two-pane layouts, for example), 
+be sure to specify only one default NavHost.
+
+=====================================
+ViewPager - FragmentPagerAdapter
+
+The ViewPager works by getting its data from an adapter - called a FragmentPagerAdapter.
+
+In order for the ViewPager to display page 0, the ViewPager asks the adapter for the 0th fragment.
+
+
+
+
+
